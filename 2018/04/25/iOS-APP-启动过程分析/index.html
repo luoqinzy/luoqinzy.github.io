@@ -7,7 +7,7 @@
 
     
 
-    <title>归档 | 繁华落尽，孤芳自赏</title>
+    <title>iOS APP 启动过程分析 | 繁华落尽，孤芳自赏</title>
     <meta name="author" content="betofly">
     
     <meta name="description" content="想文艺，想技术，每一个写博客的人都是孤芳自赏的人，每一个做技术的人也都想看遍繁华落尽">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="iOS APP 启动过程分析"/>
     <meta property="og:site_name" content="BeToFly&#39;s|Blog"/>
 
     
@@ -201,52 +201,125 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（归档）</span>
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/iOS/">iOS</a>
+
+
         
 
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>iOS APP 启动过程分析</h1>
+    
 
 
-    <ul class="collapsible mt-0" data-collapsible="accordion">
+            </div>
+            <time class="pink-link-context" datetime="2018-04-25T01:11:30.000Z"><a href="/2018/04/25/iOS-APP-启动过程分析/">2018-04-25</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
         
+            <a href="/tags/系统/" class="chip pink lighten-1">系统</a>
         
-            <li>
-                <div class="collapsible-header active">
-                    <i class="fa fa-archive"></i>2018
-                </div>
-                <div class="collapsible-body">
-                    <div class="collection">
-                        
-                            <a href="/2018/04/25/iOS-APP-启动过程分析/" class="collection-item grey-text text-darken-1">
-                                <time datetime="2018-04-25T01:11:30.000Z">2018-04-25</time>
-                                <span>&nbsp;&nbsp;&nbsp;</span>
-                                iOS APP 启动过程分析
-                            </a>
-                        
-                            <a href="/2018/04/23/xib学习(一)/" class="collection-item grey-text text-darken-1">
-                                <time datetime="2018-04-23T12:08:01.000Z">2018-04-23</time>
-                                <span>&nbsp;&nbsp;&nbsp;</span>
-                                xib学习(一)
-                            </a>
-                        
-                            <a href="/2018/04/22/hello-world/" class="collection-item grey-text text-darken-1">
-                                <time datetime="2018-04-22T00:11:08.220Z">2018-04-22</time>
-                                <span>&nbsp;&nbsp;&nbsp;</span>
-                                Hello World —— 浴火重生|越挫越勇
-                            </a>
-                        
-                    </div>
-                </div>
-            </li>
-        
-    </ul>
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#理解基础概念"><span class="section table-of-contents-text">理解基础概念</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#UIApplecation"><span class="section table-of-contents-text">UIApplecation</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#UIApplication-Delegate"><span class="section table-of-contents-text">UIApplication Delegate</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#理解启动过程"><span class="section table-of-contents-text">理解启动过程</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#参考文章"><span class="section table-of-contents-text">参考文章</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h1 id="理解基础概念"><a href="#理解基础概念" class="headerlink" title="理解基础概念"></a>理解基础概念</h1><h2 id="UIApplecation"><a href="#UIApplecation" class="headerlink" title="UIApplecation"></a>UIApplecation</h2><ul>
+<li>UIApplication对象是应用程序的象征</li>
+<li>每一个应用都有自己的UIApplication对象，而且是单例的</li>
+<li>swift可以用UIApplication.shared获取这个单例对象，OC可以用[UIApplication sharedApplication]获取这个单例对象</li>
+<li>一个iOS程序启动后创建的第一个对象就是UIApplication对象</li>
+<li><p>利用UIApplication对象，能进行一些应用级别的操作，能设置的应用级别的操作有：</p>
+<ul>
+<li>设置APP图标右上角红色提醒数字</li>
+</ul>
+</li>
+</ul>
+<pre><code><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UserNotifications</span><br><span class="line"><span class="comment">//获取相应权限</span></span><br><span class="line"><span class="type">UNUserNotificationCenter</span>.current().requestAuthorization(options: [.alert,.badge,.sound]) &#123; (granted, error) <span class="keyword">in</span>&#125;</span><br><span class="line">application.registerForRemoteNotifications()</span><br><span class="line"><span class="comment">//设置数字</span></span><br><span class="line">application.applicationIconBadgeNumber = <span class="number">5</span></span><br></pre></td></tr></table></figure>
+</code></pre><p><img src="https://ws2.sinaimg.cn/large/006tKfTcly1fqos8xcykgj302302i3ye.jpg" alt=""></p>
+<pre><code>* 设置联网指示器的可见性
+
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">application.isNetworkActivityIndicatorVisible = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</code></pre><p><img src="https://ws1.sinaimg.cn/large/006tKfTcly1fqosizufkfj30a000lwec.jpg" alt=""></p>
+<pre><code>* 自从iOS7开始，系统提供了2种管理状态栏的方式：
+    * 通过UIViewController管理（每个VC都可以有自己的状态栏） 
+    * 通过UIApplication管理（一整个应用程序的状态栏都由它管理）
+</code></pre><h2 id="UIApplication-Delegate"><a href="#UIApplication-Delegate" class="headerlink" title="UIApplication Delegate"></a>UIApplication Delegate</h2><p>移动操作系统都会有致命的缺点：APP容易收到干扰，比如在刚启动时遇到来电，这会迫使app进入后台甚至被终止。在APP受到干扰时，application会产生一些系统事件，并告知delegate对象，让delegate处理。</p>
+<p>delegate能处理的事件有：</p>
+<ol>
+<li>应用程序的生命周期事件（如程序的启动和关闭）</li>
+<li>系统事件（如来电）</li>
+<li>内存警告</li>
+<li>etc</li>
+</ol>
+<p>原理：任何遵守了UIApplicationDelegate协议的对象都可以成为application的代理，当application发生系统事件时，就会通知delegate调用相应方法处理这些系统事件。在新建项目的时候，系统已经帮我们创建了一个遵守UIApplicationDelegate的对象（“AppDelegate”类）。</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//程序启动完成</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">application</span><span class="params">(<span class="number">_</span> application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)</span></span> -&gt; <span class="type">Bool</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//程序将要进入后台</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationWillResignActive</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//程序已经进入后台</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationDidEnterBackground</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//程序将要进入前台</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationWillEnterForeground</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//程序已经进入前台</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationDidBecomeActive</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//程序将要退出</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">applicationWillTerminate</span><span class="params">(<span class="number">_</span> application: UIApplication)</span></span> &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="理解启动过程"><a href="#理解启动过程" class="headerlink" title="理解启动过程"></a>理解启动过程</h1><p>在OC工程中有个main.m文件，APP启动时首先要初始化所有的类（初始化类而不是实例），然后调用main.m中的main函数，可以吧APP的启动过程简单地划分为两个阶段：1.从类的初始化到main函数的执行；2.从main的执行到didFinishLaunchingWithOptions的执行，main的实现很简单：</p>
+<pre><code><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">#import <span class="meta-string">&lt;UIKit/UIKit.h&gt;</span></span></span><br><span class="line">    <span class="meta">#import <span class="meta-string">"AppDelegate.h"</span></span></span><br><span class="line">    <span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">        <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">UIApplicationMain</span>(argc, argv, <span class="literal">nil</span>, <span class="built_in">NSStringFromClass</span>([AppDelegate <span class="keyword">class</span>]));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre><p>通常来讲，main函数的返回代表程序的退出，但实际上main函数并不会返回，APP也不会退出，原因在于RunLoop的存在，其内部是一个do-while循环保证程序一直运行。</p>
+<p>UIApplicationMain函数的第一个参数—argc，是int类型，代表程序启动时参数的个数，默认是1；第二个参数-argv，是char*[]类型，代表各个参数的值，默认为程序的名字；第三个参数-principalClassName，是NSString*类型，该参数必须传一个UIApplication类或其子类的类名对应的字符串，用于实例化一个UIApplication或其子类对象，一般为nil，nil就代表用UIApplication的类名作为参数传进去。有特定需求时，可以定义一个UIApplication的子类传入；第四个参数-delegateClassName，也是NSString*类型，指定一个继承于UIResponder并遵守UIApplicationDelegate协议的类的实例，默认为AppDelegate类。UIApplicationMain函数会以第三个参数创建一个UIApplication或其子类的实例，以第四个参数创建一个它的代理类的实例，然后指定代理类的实例为UIApplication或其子类的delegate属性。编写代码往往从AppDelegate开始，也可以通过[UIApplication sharedApplication]获取application单例对象。</p>
+<p>执行到UIApplicationMain函数时，就会进入AppDelegate类里，执行AppDelegate生命周期的一个重要函数：application:didFinishLaunchingWithOptions:会被调用，在Xcode5之前，sb还没有成为新建项目的默认配置，通常在方中做两件事情：</p>
+<pre><code>1. 初始化appDelegate实例的window
+2. 指定一个VC实例作为window的rootController，并将widow设置为makeKeyAndVisible；
+</code></pre><p>自从Xcode引入了Main.storyboard，application:didFinishLaunchingWithOptions:方法里就没有代码了：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    <span class="comment">// Override point for customization after application launch.</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>原因在于现在在Info.plist中多了一个Main storyboard file base name的字段，用于指定sb，在程序启动时自动加载。</p>
+<p>也可以将该字段置空，手动填写内容：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    <span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[[<span class="built_in">UIScreen</span> mainScreen] bounds]];</span><br><span class="line">    RootViewController *rootViewController = [[RootViewController alloc] init];</span><br><span class="line">    <span class="keyword">self</span>.window.rootViewController = rootViewController;</span><br><span class="line">    [<span class="keyword">self</span>.window makeKeyAndVisible];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在设置该字段时，会自动初始化window，并实例化设置为Is Initial View Controller的VC，即带有箭头的VC。</p>
+<p>对于swift创建的项目，并没有main.swift，而在AppDelegate中多了一个@UIApplicationMain，相当于OC中的main.m。可以将@UIApplicationMain注释，新建main.swift，添加如下代码：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> UIKit</span><br><span class="line"><span class="keyword">import</span> Foundation</span><br><span class="line"><span class="type">UIApplicationMain</span>(<span class="type">CommandLine</span>.argc, <span class="type">UnsafeMutableRawPointer</span>(<span class="type">CommandLine</span>.unsafeArgv).bindMemory(to: <span class="type">UnsafeMutablePointer</span>&lt;<span class="type">Int8</span>&gt;.<span class="keyword">self</span>, </span><br><span class="line">capacity: <span class="type">Int</span>(<span class="type">CommandLine</span>.argc)), </span><br><span class="line"><span class="literal">nil</span>, </span><br><span class="line"><span class="type">NSStringFromClass</span>(<span class="type">AppDelegate</span>.<span class="keyword">self</span>))</span><br></pre></td></tr></table></figure>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
+<li><a href="https://blog.csdn.net/shxwork/article/details/50053489" target="_blank" rel="noopener">https://blog.csdn.net/shxwork/article/details/50053489</a></li>
+<li>郭晓亮.iOS UI 开发捷径[M].北京：电子工业出版社，2017：56-62.</li>
+</ul>
+
+                
+
+
+<p class="pink-link-context">
+    <a href="/2018/04/23/xib学习(一)/" rel="next" title="xib学习(一)">
+    下一篇：xib学习(一)
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
 
 
 </div>

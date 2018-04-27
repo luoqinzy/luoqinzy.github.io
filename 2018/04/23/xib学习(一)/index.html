@@ -172,7 +172,7 @@
 
             <li class="collapse-level-0" collapse-level="0">
                 <a class="no-padding" href="/categories/iOS/">
-                    iOS <span class="right">1 篇</span></a>
+                    iOS <span class="right">2 篇</span></a>
                 </a>
             </li>
 
@@ -246,7 +246,7 @@
 
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#xib简介"><span class="section table-of-contents-text">xib简介</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#xib使用"><span class="section table-of-contents-text">xib使用</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#与UIView子类文件关联的xib使用"><span class="section table-of-contents-text">与UIView子类文件关联的xib使用</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#创建xib并于UIIView子类关联"><span class="section table-of-contents-text">创建xib并于UIIView子类关联</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#与UIView子类关联的xib使用方法"><span class="section table-of-contents-text">与UIView子类关联的xib使用方法</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#xib中有多个view使用方法"><span class="section table-of-contents-text">xib中有多个view使用方法</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#与UIViewController子类文件关联的xib使用"><span class="section table-of-contents-text">与UIViewController子类文件关联的xib使用</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#创建xib并于UIIViewController子类关联"><span class="section table-of-contents-text">创建xib并于UIIViewController子类关联</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#与UIViewController子类关联的xib使用方法"><span class="section table-of-contents-text">与UIViewController子类关联的xib使用方法</span></a></li></ol></li></ol></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#xib简介"><span class="section table-of-contents-text">xib简介</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#xib使用"><span class="section table-of-contents-text">xib使用</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#与UIView子类文件关联的xib使用"><span class="section table-of-contents-text">与UIView子类文件关联的xib使用</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#创建xib并于UIIView子类关联"><span class="section table-of-contents-text">创建xib并于UIIView子类关联</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#与UIView子类关联的xib使用方法"><span class="section table-of-contents-text">与UIView子类关联的xib使用方法</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#xib中有多个view使用方法"><span class="section table-of-contents-text">xib中有多个view使用方法</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#与UIViewController子类文件关联的xib使用"><span class="section table-of-contents-text">与UIViewController子类文件关联的xib使用</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#创建xib并于UIIViewController子类关联"><span class="section table-of-contents-text">创建xib并于UIIViewController子类关联</span></a></li><li class="section table-of-contents-item section table-of-contents-level-3"><a class="section table-of-contents-link" href="#与UIViewController子类关联的xib使用方法"><span class="section table-of-contents-text">与UIViewController子类关联的xib使用方法</span></a></li></ol></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#参考文献"><span class="section table-of-contents-text">参考文献</span></a></li></ol>
 </div>
 
 
@@ -282,8 +282,17 @@
   <figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">init</span>(str: <span class="type">String</span>)&#123;</span><br><span class="line">    name = str</span><br><span class="line">    <span class="keyword">super</span>.<span class="keyword">init</span>(nibName: <span class="string">"TestVC"</span>, bundle: <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
+<li>郭晓亮.iOS UI 开发捷径[M].北京：电子工业出版社，2017：37-47.</li>
+</ul>
 
                 
+<p class="pink-link-context">
+    <a href="/2018/04/25/iOS-APP-启动过程分析/" rel="next" title="iOS APP 启动过程分析">
+    上一篇：iOS APP 启动过程分析
+  </a>
+</p>
+
 
 
 <p class="pink-link-context">
