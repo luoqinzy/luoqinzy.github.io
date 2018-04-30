@@ -7,7 +7,7 @@
 
     
 
-    <title>归档：2018/4 | 繁华落尽，孤芳自赏</title>
+    <title>用UICollectionView自定义Layout实现简单瀑布流 | 繁华落尽，孤芳自赏</title>
     <meta name="author" content="betofly">
     
     <meta name="description" content="想文艺，想技术，每一个写博客的人都是孤芳自赏的人，每一个做技术的人也都想看遍繁华落尽">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    
+    <meta property="og:title" content="用UICollectionView自定义Layout实现简单瀑布流"/>
     <meta property="og:site_name" content="BeToFly&#39;s|Blog"/>
 
     
@@ -209,64 +209,128 @@
 
     <main>
         <div class="container main-container">
-    
-
-<nav class="page-nav hide-on-small-only">
+    <nav class="page-nav hide-on-small-only">
     <div class="nav-wrapper indigo">
-        <span class="breadcrumb">当前位置（归档）</span>
+        <span class="breadcrumb">当前位置（分类目录）</span>
+        
+            
+    
+    
+    <a class="breadcrumb" href="/categories/iOS/">iOS</a>
+
+
         
 
         
     </div>
 </nav>
 
+<article>
+    <div class="card">
+        <div class="card-content">
+            
+
+            <div class="article-title">
+                
+    
+        <h1>用UICollectionView自定义Layout实现简单瀑布流</h1>
+    
 
 
-    <ul class="collapsible mt-0" data-collapsible="accordion">
+            </div>
+            <time class="pink-link-context" datetime="2018-04-29T12:45:43.000Z"><a href="/2018/04/29/用UICollectionView实现简单瀑布流/">2018-04-29</a></time>
+
+            <span id="busuanzi_container_page_pv" class="read-times-container">
+    <i class="fa fa-eye"></i>
+    <span id="busuanzi_value_page_pv"></span>
+</span>
+
+            
+    <div class="tags-row">
         
+            <a href="/tags/UICollectionView/" class="chip pink lighten-1">UICollectionView</a>
         
-            <li>
-                <div class="collapsible-header active">
-                    <i class="fa fa-archive"></i>2018
-                </div>
-                <div class="collapsible-body">
-                    <div class="collection">
-                        
-                            <a href="/2018/04/29/用UICollectionView实现简单瀑布流/" class="collection-item grey-text text-darken-1">
-                                <time datetime="2018-04-29T12:45:43.000Z">2018-04-29</time>
-                                <span>&nbsp;&nbsp;&nbsp;</span>
-                                用UICollectionView自定义Layout实现简单瀑布流
-                            </a>
-                        
-                            <a href="/2018/04/27/ssh学习/" class="collection-item grey-text text-darken-1">
-                                <time datetime="2018-04-27T08:46:22.000Z">2018-04-27</time>
-                                <span>&nbsp;&nbsp;&nbsp;</span>
-                                ssh学习
-                            </a>
-                        
-                            <a href="/2018/04/25/iOS-APP-启动过程分析/" class="collection-item grey-text text-darken-1">
-                                <time datetime="2018-04-25T01:11:30.000Z">2018-04-25</time>
-                                <span>&nbsp;&nbsp;&nbsp;</span>
-                                iOS APP 启动过程分析
-                            </a>
-                        
-                            <a href="/2018/04/23/xib学习(一)/" class="collection-item grey-text text-darken-1">
-                                <time datetime="2018-04-23T12:08:01.000Z">2018-04-23</time>
-                                <span>&nbsp;&nbsp;&nbsp;</span>
-                                xib学习(一)
-                            </a>
-                        
-                            <a href="/2018/04/22/hello-world/" class="collection-item grey-text text-darken-1">
-                                <time datetime="2018-04-22T00:11:08.220Z">2018-04-22</time>
-                                <span>&nbsp;&nbsp;&nbsp;</span>
-                                Hello World —— 浴火重生|越挫越勇
-                            </a>
-                        
-                    </div>
-                </div>
-            </li>
+            <a href="/tags/瀑布流/" class="chip pink lighten-1">瀑布流</a>
         
-    </ul>
+    </div>
+
+
+            <div class="toc pink-link-context hide-on-med-and-down">
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#认识UICollectionView"><span class="section table-of-contents-text">认识UICollectionView</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#什么是UICollectionView"><span class="section table-of-contents-text">什么是UICollectionView</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#UICollectionView视图层级"><span class="section table-of-contents-text">UICollectionView视图层级</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#UICollectionLayout"><span class="section table-of-contents-text">UICollectionLayout</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#实现一个简单瀑布流"><span class="section table-of-contents-text">实现一个简单瀑布流</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#创建自定义Layout"><span class="section table-of-contents-text">创建自定义Layout</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#VC部分实现"><span class="section table-of-contents-text">VC部分实现</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#最终效果"><span class="section table-of-contents-text">最终效果</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#参考文献"><span class="section table-of-contents-text">参考文献</span></a></li></ol>
+</div>
+
+
+            <div class="entry pink-link-context">
+                <h1 id="认识UICollectionView"><a href="#认识UICollectionView" class="headerlink" title="认识UICollectionView"></a>认识UICollectionView</h1><h2 id="什么是UICollectionView"><a href="#什么是UICollectionView" class="headerlink" title="什么是UICollectionView"></a>什么是UICollectionView</h2><p>简单的UICollectionView就是一个GridView，以多列的方式来呈现数据。一个标准的UICollectionView包含三个部分，它们都是UIView的子类。</p>
+<ol>
+<li>Cell: 用于展示内容的主体，对于不同的Cell，可以指定不同的尺寸大小和不同的内容。</li>
+<li>Supplementary Views: 在UiCollectionView的Section中，我们可以为其增加Header View和Footer View，它是一个可重用的视图（UICollectionReusableView），可以创建UICollectionReusableView的两个子类，一个是Header View，一个是Footer View。</li>
+<li>Decoration Views: “装饰”视图，这是每个Section的背景。</li>
+</ol>
+<h2 id="UICollectionView视图层级"><a href="#UICollectionView视图层级" class="headerlink" title="UICollectionView视图层级"></a>UICollectionView视图层级</h2><p>UICollectionView有4层视图，从下向上依次为：</p>
+<pre><code>UICollectionView：作为自身的容器
+backgroundView：用于Cell的默认背景
+selectedBackgroundView：Cell被选择是的背景
+contentView：自定义内容
+</code></pre><h2 id="UICollectionLayout"><a href="#UICollectionLayout" class="headerlink" title="UICollectionLayout"></a>UICollectionLayout</h2><p>UICollectionView并不像UITableView一样是系统自动布局好的，是需要我们自己定义布局的。UICollectionView有个强大的布局引擎——UICollectionViewLayout，它将负责各个Cell，Supplementary View和Decoration View进行组织和调配，设置位置、尺寸、透明度等属性（不过也是有坑的，这个坑在实现瀑布流的时候告诉大家）。</p>
+<p>如果不需要自己定制UICollectionViewLayout子类，可以直接使用SDK直接提供的UICollectionViewFlowLayout。FlowLayout是一种直线对齐的布局，就是从第一行从左到右然后从第二行从左到右……，对FlowLayout，你可以设置Cell的大小（是对所有Cell设置，单独设置需要自己制定Layout）和间隔。</p>
+<h1 id="实现一个简单瀑布流"><a href="#实现一个简单瀑布流" class="headerlink" title="实现一个简单瀑布流"></a>实现一个简单瀑布流</h1><h2 id="创建自定义Layout"><a href="#创建自定义Layout" class="headerlink" title="创建自定义Layout"></a>创建自定义Layout</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  MyLayout.h</span></span><br><span class="line"><span class="comment">//  CollectionViewDemo</span></span><br><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">MyLayoutDelegate</span></span></span><br><span class="line"><span class="keyword">@required</span></span><br><span class="line">- (<span class="built_in">CGSize</span>)sizeForItemAtIndexPath:(<span class="built_in">NSIndexPath</span>*)indexPath;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyLayout</span> : <span class="title">UICollectionViewFlowLayout</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="keyword">int</span> itemCount;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">id</span>&lt;MyLayoutDelegate&gt; delegate;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<p>代码中定义了一个MyLayoutDelegate，ViewController通过代理的sizeForItemAtIndexPath方法告知Layout，Layout再将每个Cell的属性存放在一个数组中，最终返回一个数组对象设置Cell布局。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  MyLayout.m</span></span><br><span class="line"><span class="comment">//  CollectionViewDemo</span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"MyLayout.h"</span></span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MyLayout</span></span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSMutableArray</span> * _attriArray;    <span class="comment">//要返回的属性数组</span></span><br><span class="line">    <span class="built_in">CGFloat</span> colHight[<span class="number">2</span>];        <span class="comment">//瀑布流两列，每列的高度</span></span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)prepareLayout&#123;           <span class="comment">//准备布局</span></span><br><span class="line">    ......</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">self</span>.itemCount; i++) &#123;</span><br><span class="line">        ......</span><br><span class="line">        <span class="built_in">CGSize</span> itemSize = [<span class="keyword">self</span>.delegate sizeForItemAtIndexPath:index];     <span class="comment">//通过代理获取每个Cell的size，可以在Layout指定，也可以从VC获得，视情况而定</span></span><br><span class="line">        <span class="built_in">CGFloat</span> hight = itemSize.height;</span><br><span class="line">        <span class="keyword">if</span> (colHight[<span class="number">0</span>] &lt;= colHight[<span class="number">1</span>]) &#123;     <span class="comment">//确定每个cell位置</span></span><br><span class="line">            colHight[<span class="number">0</span>] += ITEM_EDGE;</span><br><span class="line">            attris.frame = <span class="built_in">CGRectMake</span>(ITEM_EDGE, colHight[<span class="number">0</span>], WIDTH, hight);</span><br><span class="line">            colHight[<span class="number">0</span>] += hight;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            colHight[<span class="number">1</span>] += ITEM_EDGE;</span><br><span class="line">            attris.frame = <span class="built_in">CGRectMake</span>(ITEM_EDGE * <span class="number">2</span> + WIDTH, colHight[<span class="number">1</span>], WIDTH, hight);</span><br><span class="line">            colHight[<span class="number">1</span>] += hight;</span><br><span class="line">        &#125;</span><br><span class="line">        [_attriArray addObject:attris];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="built_in">NSArray</span>&lt;<span class="built_in">UICollectionViewLayoutAttributes</span> *&gt; *)layoutAttributesForElementsInRect:(<span class="built_in">CGRect</span>)rect&#123;     <span class="comment">//返回属性数据</span></span><br><span class="line">    <span class="keyword">return</span> _attriArray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码主要是VC获得Cell的size，在对Cell进行属性设置并返回，这其中有一个坑就是，自己定义Layout使得系统不知道contentSize是多少了，便默认使contentSize等于frameSize了，因此调试时collectionView是不能滚的的，要想使collection依旧能够滚动，就需要重写下面这个方法返回contentSize。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGSize</span>)collectionViewContentSize&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">CGSizeMake</span>([<span class="built_in">UIScreen</span> mainScreen].bounds.size.width, MAX(colHight[<span class="number">0</span>] + ITEM_EDGE, colHight[<span class="number">1</span>] + ITEM_EDGE));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="VC部分实现"><a href="#VC部分实现" class="headerlink" title="VC部分实现"></a>VC部分实现</h2><pre><code class="objc"><span class="comment">//  ViewController.m</span>
+<span class="comment">//  CollectionViewDemo</span>
+<span class="meta">#import <span class="meta-string">"ViewController.h"</span></span>
+<span class="meta">#import <span class="meta-string">"MyLayout.h"</span></span>
+<span class="class"><span class="keyword">@interface</span> <span class="title">ViewController</span> ()</span>
+<span class="keyword">@end</span>
+
+<span class="class"><span class="keyword">@implementation</span> <span class="title">ViewController</span></span>
+- (<span class="keyword">void</span>)viewDidLoad {
+    [<span class="keyword">super</span> viewDidLoad];
+    MyLayout *layout = [[MyLayout alloc]init];
+    ......
+    <span class="built_in">UICollectionView</span> *collection = [[<span class="built_in">UICollectionView</span> alloc]initWithFrame: <span class="keyword">self</span>.view.bounds collectionViewLayout:layout];
+    ......
+    [collection registerClass:[<span class="built_in">UICollectionViewCell</span> <span class="keyword">class</span>] forCellWithReuseIdentifier:<span class="string">@"cellid"</span>];     <span class="comment">//注册cell</span>
+    [<span class="keyword">self</span>.view addSubview:collection];
+}
+- (<span class="built_in">UICollectionViewCell</span> *)collectionView:(<span class="built_in">UICollectionView</span> *)collectionView cellForItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath{
+    <span class="built_in">UICollectionViewCell</span> *cell = [collectionView dequeueReusableCellWithReuseIdentifier:<span class="string">@"cellid"</span> forIndexPath:indexPath];
+    cell.backgroundColor = [<span class="built_in">UIColor</span> colorWithRed:(arc4random()%<span class="number">255</span>)/<span class="number">255.0</span> green:(arc4random()%<span class="number">255</span>)/<span class="number">255.0</span> blue:(arc4random()%<span class="number">255</span>)/<span class="number">255.0</span> alpha:<span class="number">1</span>];     <span class="comment">//随机背景颜色</span>
+    <span class="keyword">return</span> cell;
+}
+- (<span class="built_in">CGSize</span>)sizeForItemAtIndexPath:(<span class="built_in">NSIndexPath</span> *)indexPath{   <span class="comment">//代理方法，告诉layout尺寸</span>
+    <span class="keyword">float</span> WIDTH = ITEM_WIDTH;
+    <span class="keyword">return</span> <span class="built_in">CGSizeMake</span>(WIDTH, arc4random()%<span class="number">50</span>+<span class="number">50</span>);    <span class="comment">//高度在50-100之间</span>
+}
+</code></pre>
+<h1 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h1><p><img src="https://ws2.sinaimg.cn/large/006tNc79gy1fqtx08d4drg30bu0nc4qp.gif" width="30%" height="30%"></p>
+<p>源码请移步<a href="https://github.com/luoqinzy/WaterFlowDemo" target="_blank" rel="noopener">我的GitHub</a></p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
+<li>和凌志.iOS企业级应用开发技术[M].北京：电子工业出版社，2017：88-92</li>
+</ul>
+
+                
+
+
+<p class="pink-link-context">
+    <a href="/2018/04/27/ssh学习/" rel="next" title="ssh学习">
+    下一篇：ssh学习
+  </a>
+</p>
+
+
+            </div>
+			
+        </div>
+    </div>
+</article>
+
+
+
+
 
 
 </div>
