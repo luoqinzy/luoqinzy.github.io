@@ -7,7 +7,7 @@
 
     
 
-    <title>ssh学习 | 繁华落尽，孤芳自赏</title>
+    <title>http协议学习 | 繁华落尽，孤芳自赏</title>
     <meta name="author" content="betofly">
     
     <meta name="description" content="想文艺，想技术，每一个写博客的人都是孤芳自赏的人，每一个做技术的人也都想看遍繁华落尽">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="ssh学习"/>
+    <meta property="og:title" content="http协议学习"/>
     <meta property="og:site_name" content="BeToFly&#39;s|Blog"/>
 
     
@@ -232,7 +232,7 @@
             
     
     
-    <a class="breadcrumb" href="/categories/ssh/">ssh</a>
+    <a class="breadcrumb" href="/categories/计算机网络/">计算机网络</a>
 
 
         
@@ -249,12 +249,12 @@
             <div class="article-title">
                 
     
-        <h1>ssh学习</h1>
+        <h1>http协议学习</h1>
     
 
 
             </div>
-            <time class="pink-link-context" datetime="2018-04-27T08:46:22.000Z"><a href="/2018/04/27/ssh学习/">2018-04-27</a></time>
+            <time class="pink-link-context" datetime="2018-05-02T06:22:38.000Z"><a href="/2018/05/02/http协议学习/">2018-05-02</a></time>
 
             <span id="busuanzi_container_page_pv" class="read-times-container">
     <i class="fa fa-eye"></i>
@@ -264,77 +264,137 @@
             
     <div class="tags-row">
         
-            <a href="/tags/ssh/" class="chip pink lighten-1">ssh</a>
+            <a href="/tags/http协议/" class="chip pink lighten-1">http协议</a>
         
     </div>
 
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#基础学习"><span class="section table-of-contents-text">基础学习</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#传统网络服务程序的缺点"><span class="section table-of-contents-text">传统网络服务程序的缺点</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#ssh验证方式"><span class="section table-of-contents-text">ssh验证方式</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#ssh密匙类型rsa与dsa比较"><span class="section table-of-contents-text">ssh密匙类型rsa与dsa比较</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#ssh简单使用"><span class="section table-of-contents-text">ssh简单使用</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#ssh远程登录（基于口令的安全验证）"><span class="section table-of-contents-text">ssh远程登录（基于口令的安全验证）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#使用公钥登录（基于密匙的安全验证）"><span class="section table-of-contents-text">使用公钥登录（基于密匙的安全验证）</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#参考文章"><span class="section table-of-contents-text">参考文章</span></a></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#http协议简介"><span class="section table-of-contents-text">http协议简介</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#http协议的特点"><span class="section table-of-contents-text">http协议的特点</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#URL详解"><span class="section table-of-contents-text">URL详解</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#URL的组成部分"><span class="section table-of-contents-text">URL的组成部分</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#http请求详解"><span class="section table-of-contents-text">http请求详解</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#http-request"><span class="section table-of-contents-text">http request</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#http-response"><span class="section table-of-contents-text">http response</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#POST与GET的区别"><span class="section table-of-contents-text">POST与GET的区别</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#当你在浏览器地址栏输入了facebook-com回车后，发生了什么？"><span class="section table-of-contents-text">当你在浏览器地址栏输入了facebook.com回车后，发生了什么？</span></a></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#参考文章"><span class="section table-of-contents-text">参考文章</span></a></li></ol>
 </div>
 
 
             <div class="entry pink-link-context">
-                <h1 id="基础学习"><a href="#基础学习" class="headerlink" title="基础学习"></a>基础学习</h1><p>ssh 为 Secure Shell 的缩写，中文名为安全外壳协议，由IETF的网络小组（Network Working Group）所制定。ssh是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 ssh协议可以有效防止远程管理过程中的信息泄露问题。</p>
-<h2 id="传统网络服务程序的缺点"><a href="#传统网络服务程序的缺点" class="headerlink" title="传统网络服务程序的缺点"></a>传统网络服务程序的缺点</h2><p>一些传统的网络服务程序本质上是不安全的，如ftp、pop和telnet，因为它们在网络上采用明文传输口令和数据，很容易受到“中间人”的攻击（man-in-the-middle）。所谓“中间人”的攻击方式， 就是“中间人”冒充真正的服务器接收你传给服务器的数据，然后再冒充你把数据传给真正的服务器。服务器和你之间的数据传送被“中间人”一转手做了手脚之后，就会出现很严重的问题。通过使用ssh，可以把所有传输的数据进行加密，还有一个好处是传输的数据是经过压缩的，可以提高传输速率。</p>
-<h2 id="ssh验证方式"><a href="#ssh验证方式" class="headerlink" title="ssh验证方式"></a>ssh验证方式</h2><p>ssh提供两种安全级别的安全验证。</p>
+                <h1 id="http协议简介"><a href="#http协议简介" class="headerlink" title="http协议简介"></a>http协议简介</h1><p>http协议（HyperText Transfer Protocol，超文本传输协议）是一个属于应用层的面相对象的协议。Ted Nelson组织协调万维网协会（World Wide Web Consortium）和互联网工程工作小组（Internet Engineering Task Force ）共同合作研究，最终发布了一系列的RFC，其中著名的RFC 2616定义了HTTP 1.1。</p>
+<h2 id="http协议的特点"><a href="#http协议的特点" class="headerlink" title="http协议的特点"></a>http协议的特点</h2><ul>
+<li>支持C/S模式</li>
+<li>简单快速：客户向服务器请求服务时，只需传送请求方法和路径。常用的请求方法有GET、POST、HEAD。</li>
+<li>灵活：http协议允许传送任意类型的数据对象，正在传输的类型由content-type加以标记。</li>
+<li>无连接：无连接的含义是限制每次连接只处理一个请求，服务器处理网客户请求，收到客户应答后就断开连接。采用这种方式，可以节省传输时间。</li>
+<li>无状态：无状态是指对于事物处理没有记忆能力，就是说后续任务需要前面任务的信息的话就要重新传送，这样可能导致每次连接的传输量增大，不过，在不需要先前信息时应答就会很快。</li>
+</ul>
+<h1 id="URL详解"><a href="#URL详解" class="headerlink" title="URL详解"></a>URL详解</h1><p>http协议使用统一资源标识符（Uniform Resource Identifier，URI）来传输数据和建立连接。URL（Uniform Resource Locator，统一资源定位符）是一种特殊类型的URI，它包含了用于查找某个资源的足够多的信息。</p>
+<h2 id="URL的组成部分"><a href="#URL的组成部分" class="headerlink" title="URL的组成部分"></a>URL的组成部分</h2><p>示例：<a href="http://www.aspxfans.com:8080/news/index.asp?boardID=5&amp;ID=24618&amp;page=1#name" target="_blank" rel="noopener">http://www.aspxfans.com:8080/news/index.asp?boardID=5&amp;ID=24618&amp;page=1#name</a></p>
+<p>一个完整的URL包括以下部分：</p>
 <ul>
-<li><p>第一种级别（基于口令的安全验证）</p>
-<p>  只要你知道自己帐号和口令，就可以登录到远程主机。所有传输的数据都会被加密，但是不能保证你正在连接的服务器就是你想连接的服务器。可能会有别的服务器在冒充真正的服务器，也就是受到“中间人”这种方式的攻击。</p>
-</li>
-<li><p>第二种级别（基于密匙的安全验证）</p>
-<p>  需要依靠密匙，也就是你必须为自己创建一对密匙，并把公用密匙放在需要访问的服务器上。如果你要连接到SSH服务器上，客户端软件就会向服务器发出请求，请求用你的密匙进行安全验证。服务器收到请求之后，先在该服务器上你的主目录下寻找你的公用密匙，然后把它和你发送过来的公用密匙进行比较。如果两个密匙一致，服务器就用公用密匙加密“质询”（challenge）并把它发送给客户端软件。客户端软件收到“质询”之后就可以用你的私人密匙解密再把它发送给服务器。用这种方式，你必须知道自己密匙的口令。但是，与第一种级别相比，第二种级别不需要在网络上传送口令。</p>
-</li>
+<li>协议部分：该URL的协议部分是“http:”，后面的“//”是分割符。</li>
+<li>域名部分：该URL的域名部分是“<a href="http://www.aspxfans.com”，也可用ip地址表示，如“120.77.180.118”。" target="_blank" rel="noopener">www.aspxfans.com”，也可用ip地址表示，如“120.77.180.118”。</a></li>
+<li>端口部分：跟在域名后面的是端口，用“:”分隔，该URL的端口部分是8080，端口部分不是必须的部分，如果省略的话，将采用默认端口。</li>
+<li>虚拟目录部分：从域名后的第一个“/”到最后一个“/”是URL的虚拟目录部分，该URL的虚拟目录部分是“/news/”。</li>
+<li>文件名部分：从最后一个“/”到“?”之间是文件名部分，如果没有“?”,则是从最后一个“/”到“#”为止，如果没有“#”，则从最后一个“/”到最后，该URL的文件名部分是“index.asp”。文件名部分也不是必须的部分，省略的话，将采用默认文件名。</li>
+<li>参数部分：从“?”到“#”之间的部分是参数部分，可以允许有多个参数，用“&amp;”分隔。该URL的参数部分为“boardID=5&amp;ID=24618&amp;page=1”。</li>
+<li>锚部分：从“#”到最后是锚部分，该URL的锚部分是“name”。锚部分也不是必须的部分。</li>
 </ul>
-<h2 id="ssh密匙类型rsa与dsa比较"><a href="#ssh密匙类型rsa与dsa比较" class="headerlink" title="ssh密匙类型rsa与dsa比较"></a>ssh密匙类型rsa与dsa比较</h2><ul>
-<li><p>用途<br>dsa只能用于数字签名，而无法进行加密（一些拓展可进行加密），rsa既可以用于数字签名，也可以作为加密算法。不过作为加密使用的rsa随着密匙长度的不断增长，性能也不断下降。</p>
+<h1 id="http请求详解"><a href="#http请求详解" class="headerlink" title="http请求详解"></a>http请求详解</h1><h2 id="http-request"><a href="#http-request" class="headerlink" title="http request"></a>http request</h2><p>一个http请求由<strong>请求行（request line）</strong>、<strong>请求头（header）</strong>、<strong>空行</strong>和<strong>请求数据</strong>四部分组成。<br><img src="https://ws3.sinaimg.cn/large/006tNc79gy1fqx0ns6ailj30cy04l0sm.jpg" alt=""></p>
+<ol>
+<li><p>第一部分：请求行</p>
+<p> 用来说明请求类型，要访问的资源以及协议版本。</p>
 </li>
-<li><p>业界支持<br>rsa得到了更广泛的支持与部署</p>
+<li><p>第二部分：请求头</p>
+<p> 用来说明服务器要使用的附加信息。</p>
 </li>
-<li><p>创建ssh密匙时的选择<br>ssh-keygen在生成dsa密钥时，其长度只能为1024位（基于NIST FIPS 186-2）；而ssh-keygen在rsa的密钥长度上没有限制。由于小于1024位密钥长度的rsa已经有被攻破的记录，所以说现在：rsa2048位密钥是更好的选择。</p>
+<li><p>第三部分：空行</p>
+<p> 请求头后的空行是必须的，没有请求数据也要有这个空行。</p>
 </li>
-</ul>
-<h1 id="ssh简单使用"><a href="#ssh简单使用" class="headerlink" title="ssh简单使用"></a>ssh简单使用</h1><h2 id="ssh远程登录（基于口令的安全验证）"><a href="#ssh远程登录（基于口令的安全验证）" class="headerlink" title="ssh远程登录（基于口令的安全验证）"></a>ssh远程登录（基于口令的安全验证）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host     //以用户user远程登录主机host</span><br></pre></td></tr></table></figure>
-<p>如果本地用户名与远程用户名一致，可省略用户名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh host</span><br></pre></td></tr></table></figure>
-<p>ssh的默认端口是22，也就是说登录请求会进入远程主机的22端口，使用p参数可以修改这个端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -p 2222 user@host</span><br></pre></td></tr></table></figure>
-<p>如果是第一次登录主机，会提示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host</span><br><span class="line">The authenticity of host &apos;host (12.18.429.21)&apos; can&apos;t be established.</span><br><span class="line">RSA key fingerprint is 98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
-<p>这段话的意思是无法确认host主机的真实性，只知道它的公钥指纹，还要继续吗？所谓公钥指纹是指公钥长度太长（采用rsa算法可达2048位），很难对比，所以对其进行md5运算，将它变为一个128位的指纹。假设确认输入yes后，系统会输出一句提示，并要求输入远程主机密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added &apos;host,12.18.429.21&apos; (RSA) to the list of known hosts.</span><br><span class="line">Password: (enter password)</span><br></pre></td></tr></table></figure>
-<p>如果密码正确就可以登录了。当远程主机的公钥被接受以后，它就会被保存在文件$.ssh/known_hosts之中。下次再连接这台主机，系统就会认出它的公钥已经保存在本地了，从而跳过警告部分，直接提示输入密码。每个SSH用户都有自己的known_hosts文件，此外系统也有一个这样的文件，通常是/etc/ssh/ssh_known_hosts，保存一些对所有用户都可信赖的远程主机的公钥。</p>
-<h2 id="使用公钥登录（基于密匙的安全验证）"><a href="#使用公钥登录（基于密匙的安全验证）" class="headerlink" title="使用公钥登录（基于密匙的安全验证）"></a>使用公钥登录（基于密匙的安全验证）</h2><ul>
-<li>在本机上创建ssh密匙</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/root/.ssh/id_rsa):  //输入key文件的名称</span><br><span class="line">Enter passphrase (empty for no passphrase):  //输入使用key时的密码，注意这里不是远处服务器的密码， 只是你使用sshkey时需要输入的密码，建议不输入(如果要输入这个密码还不如直接输入远程主机的密码。</span><br><span class="line">Enter same passphrase again:  </span><br><span class="line">Your identification has been saved in /root/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in /root/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">11:ae:00:bd:92:bc:70:f8:4b:cb:47:06:7f:e2:73:21 root@xxxxxx</span><br></pre></td></tr></table></figure>
+<li><p>第四部分：请求数据</p>
+<p> 请求数据也叫主体，请求数据可以没有。</p>
+</li>
+</ol>
 <ul>
-<li>将公钥拷贝到远程主机上</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scp -P 22 ~/.ssh/id_rsa.pub user@host:~/.ssh/</span><br></pre></td></tr></table></figure>
+<li><p><strong>请求示例</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">POST /562f25980001b1b106000338.jpg HTTP/1.1</span><br><span class="line">Host:www.wrox.com</span><br><span class="line">User-Agent:Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022)</span><br><span class="line">Content-Type:application/x-www-form-urlencoded</span><br><span class="line">Content-Length:40</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line"></span><br><span class="line">    name=Professional%20Ajax&amp;publisher=Wiley</span><br></pre></td></tr></table></figure>
 <ul>
-<li>在远程主机上将id_rsa.pub添加到authorized_keys</li>
+<li>第一部分：请求行（第1行），表明了请求方式-POST，资源文件-jpg，协议及版本</li>
+<li>第二部分：请求头（第2-6行），表明一些请求信息</li>
+<li>第三部分：空行（第7行）</li>
+<li>第四部分：请求主体（第8行及以后）</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure>
-<p>然后就可以在本地远程登录host了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="http-response"><a href="#http-response" class="headerlink" title="http response"></a>http response</h2><p>一般情况下，服务器收到http请求后会返回一个http响应（response）。http响应也由四个部分组成–<strong>状态行</strong>、<strong>消息报头</strong>、<strong>空行</strong>和<strong>响应正文</strong>。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNc79ly1fqx85v50djj30iz08h74n.jpg" alt=""></p>
+<ul>
+<li><p>http 状态码<br>  状态代码有三位数字组成，第一个数字定义了响应的类别，共分五种类别:<br>1xx：指示信息–表示请求已接收，继续处理<br>2xx：成功–表示请求已被成功接收、理解、接受<br>3xx：重定向–要完成请求必须进行更进一步的操作<br>4xx：客户端错误–请求有语法错误或请求无法实现<br>5xx：服务器端错误–服务器未能实现合法的请求</p>
+</li>
+<li><p>常用状态码：</p>
+<p>  | 状态码 | 英文描述 | 中文说明 |<br>| — | — | — |<br>| 200 | OK | 请求成功 |<br>| 301 | 永久移动 | 永久移动。请求的资源已被永久的移动到新URI，返回信息会包括新的URI，浏览器会自动定向到新URI。今后任何新的请求都应使用新的URI代替 |<br>| 400 | Bad Request | 客户端请求的语法错误，服务器无法理解 |<br>| 404 | Not Found | 服务器无法根据客户端的请求找到资源 |<br>| 500 | Internal Server Error | 服务器内部错误，无法完成请求 |<br>| 502 | Bad Gateway | 充当网关或代理的服务器，从远端服务器接收到了一个无效的请求 |</p>
+<p>  状态码详细说明请移步<a href="http://www.runoob.com/http/http-status-codes.html" target="_blank" rel="noopener">http://www.runoob.com/http/http-status-codes.html</a></p>
+</li>
+</ul>
+<h1 id="POST与GET的区别"><a href="#POST与GET的区别" class="headerlink" title="POST与GET的区别"></a>POST与GET的区别</h1><ol>
+<li>GET请求，请求的参数会附加在URL后面，以“?“分隔，多个参数之间用”&amp;“连接。因此，GET的参数会暴露在URL中，而POST的参数隐藏在请求主体中。相对而言POST更安全一些。</li>
+<li>GET在浏览器回退时是无害的，而POST请求会请求再次提交</li>
+<li>对于参数的类型，GET只接受ASCII类型，POST无限制。</li>
+<li>GET请求在URL中传送的参数是有长度限制的，而POST没有。大多数浏览器URL长度限定在2kB、服务器限定在64kB。</li>
+</ol>
+<p>但是GET与POST方式本质上是没有区别的，POST和GET都是TCP连接，在POST方式的URL后加上参数，在GET请求体里加上参数是能够做到的，但是一般不允许这么做，http协议是个行为准则，但还是基于TCP协议实现的。</p>
+<p>两者另一个重大区别是GET产生一个TCP数据包，POST产生两个TCP数据包。POST需要先发送header，服务器响应100后，在发送data，服务器响应200。而GET只有一次发送，得到相应结果。也不是说GET的效率就一定比POST好，在网络环境好的时候，发一次包和发两次包的时间差别可以忽略，而在网络环境不好的时候，POST在验证数据完整性上有很大的优点。</p>
+<h1 id="当你在浏览器地址栏输入了facebook-com回车后，发生了什么？"><a href="#当你在浏览器地址栏输入了facebook-com回车后，发生了什么？" class="headerlink" title="当你在浏览器地址栏输入了facebook.com回车后，发生了什么？"></a>当你在浏览器地址栏输入了facebook.com回车后，发生了什么？</h1><ol>
+<li><p>转换非ASCII字符</p>
+<p> 浏览器检查输入是否含有不是a-z，A-Z，0-9，- 或者.的字符，如果有，将这些字符进行转码。</p>
+</li>
+<li><p>检查HSTS列表</p>
+<p> 浏览器检查自带的“预加载 HSTS（HTTP严格传输安全）”列表，这个列表里包含了那些请求浏览器只使用HTTPS进行连接的网站。如果要访问的网站在这个列表里，浏览器会使用HTTPS协议，而非HTTP协议。</p>
+</li>
+<li><p>DNS查询</p>
+<ul>
+<li>查询浏览器缓存：浏览器会记录DNS一段时间，在Chrome中可用在chrome://net-internals/#dns查看。</li>
+<li>查询系统缓存：如果浏览器缓存没有相应记录，就会发起系统调用查看系统缓存</li>
+<li>查询路由器缓存：接着前面的请求会去查询路由器，路由器有自己的DNS缓存。</li>
+<li><p>查询本地域名服务器，若有相关缓存，就会告知主机，若没有，则会向更高级的域名服务器查询。</p>
+<ul>
+<li><p>本机向本地域名服务器的查询一般采用<strong>递归查询（recursive query）</strong>。递归查询就是：如果本机所询问的本地域名服务器不知道被查询域名的IP地址，那么本地域名服务器就以DNS客户的身份，向其他根域名服务器发出查询请求报文（代替该主机继续查询），而不是让该主机自己进行下一步查询。因此，递归查询返回的查询结果或者是所要查询的IP地址，或者是报错，或者是无法查询到所需的IP地址。<br>  <img src="https://ws3.sinaimg.cn/large/006tKfTcgy1fqxzfqxgjkj30ix0g9dhx.jpg" alt=""></p>
+</li>
+<li><p>本地域名服务器向根域名服务器的查询通常是采用<strong>迭代查询（iterative query）</strong>。迭代查询是当根域名服务器收到本地域名服务器发出的查询请求报文时，要么给出要查询的IP地址，要么告知下一步要查询的域名服务器，而不会代替主机进行查询。当然查询方式是可以在请求报文中设置的。<br>  <img src="https://ws3.sinaimg.cn/large/006tKfTcgy1fqxzerro77j30km0fd76d.jpg" alt=""></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>浏览器给web服务器发送一个HTTP请求</p>
+</li>
+</ol>
+<pre><code><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">http://facebook.com/</span> HTTP/1.1</span><br><span class="line"> <span class="attribute">Accept</span>: application/x-ms-application, image/jpeg, application/xaml+xml, [...]</span><br><span class="line"> <span class="attribute">User-Agent</span>: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; [...]</span><br><span class="line"> <span class="attribute">Accept-Encoding</span>: gzip, deflate</span><br><span class="line"> <span class="attribute">Connection</span>: Keep-Alive</span><br><span class="line"> <span class="attribute">Host</span>: facebook.com</span><br><span class="line"><span class="attribute">Cookie</span>: datr=1265876274-[...]; locale=en_US; lsd=WW[...]; c_user=2101[...]</span><br></pre></td></tr></table></figure>
+</code></pre><p>GET 这个请求定义了要读取的URL： “<a href="http://facebook.com/”。" target="_blank" rel="noopener">http://facebook.com/”。</a> 浏览器自身定义 (User-Agent 头)， 和它希望接受什么类型的相应 (Accept andAccept-Encoding 头). Connection头要求服务器为了后边的请求不要关闭TCP连接。</p>
+<pre><code>请求中也包含浏览器存储的该域名的cookies。可能你已经知道，在不同页面请求当中，cookies是与跟踪一个网站状态相匹配的键值。这样cookies会存储登录用户名，服务器分配的密码和一些用户设置等。Cookies会以文本文档形式存储在客户机里，每次请求时发送给服务器。
+</code></pre><ol start="5">
+<li><p>服务器永久重定向301响应</p>
+ <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">301</span> Moved Permanently</span><br><span class="line"> <span class="attribute">Cache-Control</span>: private, no-store, no-cache, must-revalidate, post-check=0,</span><br><span class="line"> pre-check=0</span><br><span class="line"> <span class="attribute">Expires</span>: Sat, 01 Jan 2000 00:00:00 GMT</span><br><span class="line"> <span class="attribute">Location</span>: http://www.facebook.com/</span><br><span class="line"> <span class="attribute">P3P</span>: CP="DSP LAW"</span><br><span class="line"> <span class="attribute">Pragma</span>: no-cache</span><br><span class="line"> <span class="attribute">Set-Cookie</span>: made_write_conn=deleted; expires=Thu, 12-Feb-2009 05:09:50 GMT;</span><br><span class="line"> path=/; domain=.facebook.com; httponly</span><br><span class="line"> <span class="attribute">Content-Type</span>: text/html; charset=utf-8</span><br><span class="line"> <span class="attribute">X-Cnection</span>: close</span><br><span class="line"> <span class="attribute">Date</span>: Fri, 12 Feb 2010 05:09:51 GMT</span><br><span class="line"> <span class="attribute">Content-Length</span>: 0</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code>服务器给浏览器响应一个301永久重定向响应，这样浏览器就会访问“http://www.facebook.com/” 而非“http://facebook.com/” 。如果同时将几个域名解析到同一个空间的时候，如果不做重定向，就会形成重复页面，对网站是极度不利的，这种情况需要做301重定向。
+</code></pre><ol start="6">
+<li><p>浏览器跟踪重定向</p>
+<p> 现在，浏览器知道了“<a href="http://www.facebook.com/”" target="_blank" rel="noopener">http://www.facebook.com/”</a> 才是要访问的正确地址，所以它会发送另一个获取请求：</p>
+ <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">http://www.facebook.com/</span> HTTP/1.1</span><br><span class="line"> <span class="attribute">Accept</span>: application/x-ms-application, image/jpeg, application/xaml+xml, [...]</span><br><span class="line"> <span class="attribute">Accept-Language</span>: en-US</span><br><span class="line"> <span class="attribute">User-Agent</span>: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; [...]</span><br><span class="line"> <span class="attribute">Accept-Encoding</span>: gzip, deflate</span><br><span class="line"> <span class="attribute">Connection</span>: Keep-Alive</span><br><span class="line"> <span class="attribute">Cookie</span>: lsd=XW[...]; c_user=21[...]; x-referer=[...]</span><br><span class="line"> <span class="attribute">Host</span>: www.facebook.com</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol start="8">
+<li>服务器处理请求</li>
+<li>服务器返回一个响应</li>
+<li>浏览器渲染并显示</li>
+</ol>
 <h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
-<li><a href="https://www.baidu.com/s?ie=UTF-8&amp;wd=ssh" target="_blank" rel="noopener">https://www.baidu.com/s?ie=UTF-8&amp;wd=ssh</a></li>
-<li><a href="http://blog.sina.com.cn/s/blog_6f31085901015agu.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_6f31085901015agu.html</a></li>
+<li><a href="https://www.cnblogs.com/ranyonsue/p/5984001.html" target="_blank" rel="noopener">https://www.cnblogs.com/ranyonsue/p/5984001.html</a></li>
+<li><a href="https://blog.csdn.net/wuhenliushui/article/details/20038819/" target="_blank" rel="noopener">https://blog.csdn.net/wuhenliushui/article/details/20038819/</a></li>
 </ul>
 
                 
-<p class="pink-link-context">
-    <a href="/2018/04/29/用UICollectionView实现简单瀑布流/" rel="next" title="用UICollectionView自定义Layout实现简单瀑布流">
-    上一篇：用UICollectionView自定义Layout实现简单瀑布流
-  </a>
-</p>
-
 
 
 <p class="pink-link-context">
-    <a href="/2018/04/25/iOS-APP-启动过程分析/" rel="next" title="iOS APP 启动过程分析">
-    下一篇：iOS APP 启动过程分析
+    <a href="/2018/05/01/Git学习/" rel="next" title="Git学习">
+    下一篇：Git学习
   </a>
 </p>
 

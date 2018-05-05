@@ -7,7 +7,7 @@
 
     
 
-    <title>ssh学习 | 繁华落尽，孤芳自赏</title>
+    <title>Git学习 | 繁华落尽，孤芳自赏</title>
     <meta name="author" content="betofly">
     
     <meta name="description" content="想文艺，想技术，每一个写博客的人都是孤芳自赏的人，每一个做技术的人也都想看遍繁华落尽">
@@ -15,7 +15,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <meta property="og:title" content="ssh学习"/>
+    <meta property="og:title" content="Git学习"/>
     <meta property="og:site_name" content="BeToFly&#39;s|Blog"/>
 
     
@@ -232,7 +232,7 @@
             
     
     
-    <a class="breadcrumb" href="/categories/ssh/">ssh</a>
+    <a class="breadcrumb" href="/categories/Git/">Git</a>
 
 
         
@@ -249,12 +249,12 @@
             <div class="article-title">
                 
     
-        <h1>ssh学习</h1>
+        <h1>Git学习</h1>
     
 
 
             </div>
-            <time class="pink-link-context" datetime="2018-04-27T08:46:22.000Z"><a href="/2018/04/27/ssh学习/">2018-04-27</a></time>
+            <time class="pink-link-context" datetime="2018-05-01T06:24:22.000Z"><a href="/2018/05/01/Git学习/">2018-05-01</a></time>
 
             <span id="busuanzi_container_page_pv" class="read-times-container">
     <i class="fa fa-eye"></i>
@@ -264,77 +264,145 @@
             
     <div class="tags-row">
         
-            <a href="/tags/ssh/" class="chip pink lighten-1">ssh</a>
+            <a href="/tags/git/" class="chip pink lighten-1">git</a>
         
     </div>
 
 
             <div class="toc pink-link-context hide-on-med-and-down">
-    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#基础学习"><span class="section table-of-contents-text">基础学习</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#传统网络服务程序的缺点"><span class="section table-of-contents-text">传统网络服务程序的缺点</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#ssh验证方式"><span class="section table-of-contents-text">ssh验证方式</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#ssh密匙类型rsa与dsa比较"><span class="section table-of-contents-text">ssh密匙类型rsa与dsa比较</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#ssh简单使用"><span class="section table-of-contents-text">ssh简单使用</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#ssh远程登录（基于口令的安全验证）"><span class="section table-of-contents-text">ssh远程登录（基于口令的安全验证）</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#使用公钥登录（基于密匙的安全验证）"><span class="section table-of-contents-text">使用公钥登录（基于密匙的安全验证）</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#参考文章"><span class="section table-of-contents-text">参考文章</span></a></li></ol>
+    <ol class="section table-of-contents"><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#Git简介"><span class="section table-of-contents-text">Git简介</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#什么是git"><span class="section table-of-contents-text">什么是git</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#集中式与分布式"><span class="section table-of-contents-text">集中式与分布式</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#安装git"><span class="section table-of-contents-text">安装git</span></a></li><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#创建仓库"><span class="section table-of-contents-text">创建仓库</span></a></li></ol></li><li class="section table-of-contents-item section table-of-contents-level-1"><a class="section table-of-contents-link" href="#时光机穿梭"><span class="section table-of-contents-text">时光机穿梭</span></a><ol class="section table-of-contents-child"><li class="section table-of-contents-item section table-of-contents-level-2"><a class="section table-of-contents-link" href="#版本管理"><span class="section table-of-contents-text">版本管理</span></a></li></ol></li></ol>
 </div>
 
 
             <div class="entry pink-link-context">
-                <h1 id="基础学习"><a href="#基础学习" class="headerlink" title="基础学习"></a>基础学习</h1><p>ssh 为 Secure Shell 的缩写，中文名为安全外壳协议，由IETF的网络小组（Network Working Group）所制定。ssh是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。利用 ssh协议可以有效防止远程管理过程中的信息泄露问题。</p>
-<h2 id="传统网络服务程序的缺点"><a href="#传统网络服务程序的缺点" class="headerlink" title="传统网络服务程序的缺点"></a>传统网络服务程序的缺点</h2><p>一些传统的网络服务程序本质上是不安全的，如ftp、pop和telnet，因为它们在网络上采用明文传输口令和数据，很容易受到“中间人”的攻击（man-in-the-middle）。所谓“中间人”的攻击方式， 就是“中间人”冒充真正的服务器接收你传给服务器的数据，然后再冒充你把数据传给真正的服务器。服务器和你之间的数据传送被“中间人”一转手做了手脚之后，就会出现很严重的问题。通过使用ssh，可以把所有传输的数据进行加密，还有一个好处是传输的数据是经过压缩的，可以提高传输速率。</p>
-<h2 id="ssh验证方式"><a href="#ssh验证方式" class="headerlink" title="ssh验证方式"></a>ssh验证方式</h2><p>ssh提供两种安全级别的安全验证。</p>
+                <h1 id="Git简介"><a href="#Git简介" class="headerlink" title="Git简介"></a>Git简介</h1><h2 id="什么是git"><a href="#什么是git" class="headerlink" title="什么是git"></a>什么是git</h2><p>git是目前最流行的分布式版本控制工具，什么是版本控制呢，拿word来举例的话就是，“myword.docx”，“myword新.docx”、“myword最终版.docx”、“myword最终版打印.docx”、“myword最终版打印新.docx”……。利用git可以方便的管理这些版本，有版本修改说明，并且可以回溯到之前的版本，从而脱离手动版本控制。</p>
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>文件名</th>
+<th>说明</th>
+<th>时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>myword.docx</td>
+<td>xxx工作文档</td>
+<td>2/1 21:12</td>
+</tr>
+<tr>
+<td>2</td>
+<td>myword.docx</td>
+<td>增加了xxx</td>
+<td>2/4 12:45</td>
+</tr>
+<tr>
+<td>3</td>
+<td>myword.docx</td>
+<td>删除了xxx</td>
+<td>2/5 12:11</td>
+</tr>
+<tr>
+<td>4</td>
+<td>myword.docx</td>
+<td>修改了xxx</td>
+<td>2/9 17:56</td>
+</tr>
+</tbody>
+</table>
+<h2 id="集中式与分布式"><a href="#集中式与分布式" class="headerlink" title="集中式与分布式"></a>集中式与分布式</h2><p>git采用的是分布式版本管理控制，那集中式和分布式有什么区别呢？</p>
 <ul>
-<li><p>第一种级别（基于口令的安全验证）</p>
-<p>  只要你知道自己帐号和口令，就可以登录到远程主机。所有传输的数据都会被加密，但是不能保证你正在连接的服务器就是你想连接的服务器。可能会有别的服务器在冒充真正的服务器，也就是受到“中间人”这种方式的攻击。</p>
+<li><p>集中式</p>
+<p>  所谓集中式，就是版本库放在中央服务器，每次工作前要先从中央服务器拿过最新的版本，工作完毕后在将自己的工作推送到服务器。</p>
 </li>
-<li><p>第二种级别（基于密匙的安全验证）</p>
-<p>  需要依靠密匙，也就是你必须为自己创建一对密匙，并把公用密匙放在需要访问的服务器上。如果你要连接到SSH服务器上，客户端软件就会向服务器发出请求，请求用你的密匙进行安全验证。服务器收到请求之后，先在该服务器上你的主目录下寻找你的公用密匙，然后把它和你发送过来的公用密匙进行比较。如果两个密匙一致，服务器就用公用密匙加密“质询”（challenge）并把它发送给客户端软件。客户端软件收到“质询”之后就可以用你的私人密匙解密再把它发送给服务器。用这种方式，你必须知道自己密匙的口令。但是，与第一种级别相比，第二种级别不需要在网络上传送口令。</p>
-</li>
-</ul>
-<h2 id="ssh密匙类型rsa与dsa比较"><a href="#ssh密匙类型rsa与dsa比较" class="headerlink" title="ssh密匙类型rsa与dsa比较"></a>ssh密匙类型rsa与dsa比较</h2><ul>
-<li><p>用途<br>dsa只能用于数字签名，而无法进行加密（一些拓展可进行加密），rsa既可以用于数字签名，也可以作为加密算法。不过作为加密使用的rsa随着密匙长度的不断增长，性能也不断下降。</p>
-</li>
-<li><p>业界支持<br>rsa得到了更广泛的支持与部署</p>
-</li>
-<li><p>创建ssh密匙时的选择<br>ssh-keygen在生成dsa密钥时，其长度只能为1024位（基于NIST FIPS 186-2）；而ssh-keygen在rsa的密钥长度上没有限制。由于小于1024位密钥长度的rsa已经有被攻破的记录，所以说现在：rsa2048位密钥是更好的选择。</p>
+<li><p>分布式</p>
+<p>  分布式系统安全性要高很多，每个人的电脑里都有一个版本库，如果有一台电脑出故障，从其他人那里拷贝一份就好了，如果集中式系统的中央服务器瘫痪了，整个工作就gg了。git中也有一台电脑充当中央服务器，这是为了方便交换修改和合并工作，并不是必须的。git强大不止这样，还在于其强大的分支管理。</p>
 </li>
 </ul>
-<h1 id="ssh简单使用"><a href="#ssh简单使用" class="headerlink" title="ssh简单使用"></a>ssh简单使用</h1><h2 id="ssh远程登录（基于口令的安全验证）"><a href="#ssh远程登录（基于口令的安全验证）" class="headerlink" title="ssh远程登录（基于口令的安全验证）"></a>ssh远程登录（基于口令的安全验证）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host     //以用户user远程登录主机host</span><br></pre></td></tr></table></figure>
-<p>如果本地用户名与远程用户名一致，可省略用户名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh host</span><br></pre></td></tr></table></figure>
-<p>ssh的默认端口是22，也就是说登录请求会进入远程主机的22端口，使用p参数可以修改这个端口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -p 2222 user@host</span><br></pre></td></tr></table></figure>
-<p>如果是第一次登录主机，会提示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host</span><br><span class="line">The authenticity of host &apos;host (12.18.429.21)&apos; can&apos;t be established.</span><br><span class="line">RSA key fingerprint is 98:2e:d7:e0:de:9f:ac:67:28:c2:42:2d:37:16:58:4d.</span><br><span class="line">Are you sure you want to continue connecting (yes/no)?</span><br></pre></td></tr></table></figure>
-<p>这段话的意思是无法确认host主机的真实性，只知道它的公钥指纹，还要继续吗？所谓公钥指纹是指公钥长度太长（采用rsa算法可达2048位），很难对比，所以对其进行md5运算，将它变为一个128位的指纹。假设确认输入yes后，系统会输出一句提示，并要求输入远程主机密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Are you sure you want to continue connecting (yes/no)? yes</span><br><span class="line">Warning: Permanently added &apos;host,12.18.429.21&apos; (RSA) to the list of known hosts.</span><br><span class="line">Password: (enter password)</span><br></pre></td></tr></table></figure>
-<p>如果密码正确就可以登录了。当远程主机的公钥被接受以后，它就会被保存在文件$.ssh/known_hosts之中。下次再连接这台主机，系统就会认出它的公钥已经保存在本地了，从而跳过警告部分，直接提示输入密码。每个SSH用户都有自己的known_hosts文件，此外系统也有一个这样的文件，通常是/etc/ssh/ssh_known_hosts，保存一些对所有用户都可信赖的远程主机的公钥。</p>
-<h2 id="使用公钥登录（基于密匙的安全验证）"><a href="#使用公钥登录（基于密匙的安全验证）" class="headerlink" title="使用公钥登录（基于密匙的安全验证）"></a>使用公钥登录（基于密匙的安全验证）</h2><ul>
-<li>在本机上创建ssh密匙</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa</span><br><span class="line">Generating public/private rsa key pair.</span><br><span class="line">Enter file in which to save the key (/root/.ssh/id_rsa):  //输入key文件的名称</span><br><span class="line">Enter passphrase (empty for no passphrase):  //输入使用key时的密码，注意这里不是远处服务器的密码， 只是你使用sshkey时需要输入的密码，建议不输入(如果要输入这个密码还不如直接输入远程主机的密码。</span><br><span class="line">Enter same passphrase again:  </span><br><span class="line">Your identification has been saved in /root/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved in /root/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line">11:ae:00:bd:92:bc:70:f8:4b:cb:47:06:7f:e2:73:21 root@xxxxxx</span><br></pre></td></tr></table></figure>
-<ul>
-<li>将公钥拷贝到远程主机上</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ scp -P 22 ~/.ssh/id_rsa.pub user@host:~/.ssh/</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在远程主机上将id_rsa.pub添加到authorized_keys</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure>
-<p>然后就可以在本地远程登录host了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh user@host</span><br></pre></td></tr></table></figure>
-<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
-<li><a href="https://www.baidu.com/s?ie=UTF-8&amp;wd=ssh" target="_blank" rel="noopener">https://www.baidu.com/s?ie=UTF-8&amp;wd=ssh</a></li>
-<li><a href="http://blog.sina.com.cn/s/blog_6f31085901015agu.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_6f31085901015agu.html</a></li>
-</ul>
+<h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p>参考官网吧，各个平台的安装方法都有，网上也有很多教程。 <a href="https://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" target="_blank" rel="noopener">点这里。</a></p>
+<h2 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h2><p>仓库就是版本库，英文名为repository，可以认为是一个目录，可以在里面添加、修改，也可以回溯到之前一个版本。</p>
+<ol>
+<li><p>创建git仓库：git init</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository in /Users/muyang/Github/gitstudy/.git/</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>这样就创建好了一个仓库，并且可以看出创建了一个.git目录，这个目录是隐藏的，可以用ls -ah查看。</p>
+<ol start="2">
+<li><p>将文件添加到仓库：git add \<file></file></p>
+<p> 简单起见，在根目录下（即工程目录，.git的父目录）创建一个gitstudy.txt，内容为“I’am studying git.”</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git add gitstudy.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>并没有返回信息，没有返回信息就代表添加成功。</p>
+<ol start="3">
+<li><p>提交内容到版本库：git commit -m”说明”</p>
+<p> 之前我们添加了一个文件，可以用git status查看当前状态</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">No commits yet</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span><br><span class="line">	new file:   gitstudy.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>是说有文件需要提交（用git rm命令删除文件）</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git commit -m&quot;first commit&quot;</span><br><span class="line">[master (root-commit) c223390] first commit</span><br><span class="line"> 1 file changed, 1 insertion(+)</span><br><span class="line"> create mode 100644 gitstudy.txt</span><br></pre></td></tr></table></figure>
+</code></pre><p>这段话是说1个文件被改动，插入了1行内容。</p>
+<h1 id="时光机穿梭"><a href="#时光机穿梭" class="headerlink" title="时光机穿梭"></a>时光机穿梭</h1><h2 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h2><ol>
+<li><p>版本信息查看：git log</p>
+<p> 使用这个命令，可以查看仓库中有哪些版本</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    $ git log</span><br><span class="line">commit 0dfc4c0909854cd695fd1da231e12566a2be6d1a (HEAD -&gt; master)</span><br><span class="line">Author: betofly &lt;mraoch@163.com&gt;</span><br><span class="line">Date:   Tue May 1 16:03:45 2018 +0800</span><br><span class="line">        final</span><br><span class="line">commit 9307367856c6e6bb98bc91f40717d19b1383f60e</span><br><span class="line">Author: betofly &lt;mraoch@163.com&gt;</span><br><span class="line">Date:   Tue May 1 15:54:24 2018 +0800</span><br><span class="line">        middle</span><br><span class="line">commit c223390a05edf2cf28ecbd25803b727ba55798f3</span><br><span class="line">Author: betofly &lt;mraoch@163.com&gt;</span><br><span class="line">Date:   Tue May 1 15:37:49 2018 +0800</span><br><span class="line">    first commit</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>如果嫌输出信息太多，可以在命名最后添加–pretty=oneline参数</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    $ git log --pretty=oneline</span><br><span class="line">0dfc4c0909854cd695fd1da231e12566a2be6d1a (HEAD -&gt; master) final</span><br><span class="line">1b14239973a41512b531443f8fd28736774edd6f null</span><br><span class="line">c223390a05edf2cf28ecbd25803b727ba55798f3 first commit</span><br></pre></td></tr></table></figure>
+</code></pre><p>这一大串数字和字母便是版本号(commit id)，</p>
+<ol start="2">
+<li><p>回退到历史版本：git reset –hard 版本号</p>
+<p> 首先要知道当前版本是那个，git log命令是按时间由近到远从上到下显示的，并且带有HEAD的便是当前版本。HEAD的上一个版本是HEAD^,上上一个是HEAD^^,也可以写成HEAD~1，HEAD~2。</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git reset --hard c2233</span><br><span class="line">HEAD is now at c223390 first commit</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>可以写HEAD^1，也可以写版本号，版本号不用写全，写出前几位能供系统唯一区分出确定版本就行了。这时在看git log，发现没有了当前版本之后的记录，感觉像穿梭到古代回不去了呜呜呜……</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    $ git log</span><br><span class="line">commit c223390a05edf2cf28ecbd25803b727ba55798f3 (HEAD -&gt; master)</span><br><span class="line">Author: betofly &lt;mraoch@163.com&gt;</span><br><span class="line">Date:   Tue May 1 15:37:49 2018 +0800</span><br><span class="line">        first commit</span><br><span class="line">``` </span><br><span class="line">在git中总是有后悔药可以吃的，想要回到未来版本，就要找到未来版本的版本号，git提供了一个命令来记录每一次命令git reflog：</span><br></pre></td></tr></table></figure>
 
+$ git reflog
+</code></pre><p>c223390 (HEAD -&gt; master) HEAD@{0}: reset: moving to c2233<br>0dfc4c0 HEAD@{1}: reset: moving to 0dfc<br>c223390 (HEAD -&gt; master) HEAD@{2}: reset: moving to c2233<br>0dfc4c0 HEAD@{3}: reset: moving to 0dfc<br>c223390 (HEAD -&gt; master) HEAD@{4}: reset: moving to c2233<br>0dfc4c0 HEAD@{5}: commit: final<br>1b14239 HEAD@{6}: commit: null<br>9307367 HEAD@{7}: commit: null<br>c223390 (HEAD -&gt; master) HEAD@{8}: commit (initial): first commit<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">找到对应版本号后，就可以在此坐时光机回来了。</span><br><span class="line"></span><br><span class="line">## 工作区与暂存区</span><br><span class="line"></span><br><span class="line">* 工作区(Working Directory)</span><br><span class="line"></span><br><span class="line">    工作区就是我们能看到的目录，也就是一个工程的根目录，.git的父目录。</span><br><span class="line">    </span><br><span class="line">* 仓库(Repository)</span><br><span class="line"></span><br><span class="line">    隐藏目录.git不是工作区，是git的仓库。仓库里存了很多东西，主要是暂存区(stage或index)和分支(branch)，在创建仓库的时候，git已经帮我们默认创建了一个分支master，也就是说默认状态下仓库里有**暂存区**和**master**和master的**指针HEAD**。</span><br><span class="line"></span><br><span class="line">    git add命令就是将对文件的修改添加到暂存区，git commit是将暂存区的文件修改提交到当前分支，然后清空暂存区。</span><br><span class="line">    </span><br><span class="line">## 修改管理</span><br><span class="line"></span><br><span class="line">1. 查看区别：git diff</span><br><span class="line"></span><br><span class="line">    git跟踪管理的是修改并非文件，每次commit的是缓存区的内容，在add之后对文件进行的修改是不会commit到分支中去的，可以用git diff 查看工作区与仓库中最新版本的区别。</span><br><span class="line"></span><br><span class="line">    ```git</span><br><span class="line">$ git diff</span><br><span class="line">diff --git a/gitstudy.txt b/gitstudy.txt</span><br><span class="line">index 1ce7a39..cc3b528 100644</span><br><span class="line">--- a/gitstudy.txt</span><br><span class="line">+++ b/gitstudy.txt</span><br><span class="line">@@ -1,2 +1,4 @@</span><br><span class="line"> I&apos;am studying git.</span><br><span class="line">-Git good one.</span><br><span class="line">\ No newline at end of file</span><br><span class="line">+Git good one.</span><br><span class="line">+Git good two.</span><br><span class="line">+Git good three.</span><br><span class="line">\ No newline at end of file</span><br></pre></td></tr></table></figure></p>
+<p>这段话告诉了我们，公有部分是I’am studying git.。工作区比仓库最新版少了Git good one.，多了Git good one.Git good two.Git good three.。之所以少了Git good one.，又多了Git good one.，是因为我在这句话后面敲了回车。</p>
+<pre><code>要想将再次的修改提交到仓库中，就要在进行add和commit，也可以多次add后，在commit。
+</code></pre><ol start="2">
+<li>撤销修改</li>
+</ol>
+<ul>
+<li><p>没有add之前：git checkout – \<file></file></p>
+<p>  在对工作区进行了修改，没有add之前，想撤销对工作区的修改，此时可以用git status 查看一下</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory) </span><br><span class="line">	   modified:   gitstudy.txt</span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这段高速我们用git add将会被用来commit，用git checkout可以撤销对工作区的修改。</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- gitstudy.txt</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br></pre></td></tr></table></figure>
+
+git checkout后的--很重要，否则就会变成另一条命令。
+</code></pre><ul>
+<li><p>add之后，没有commit之前：git reset HEAD <file></file></p>
+<p>  此时，用git status查看一下状态</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line">	   modified:   gitstudy.txt</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这段话告诉我们，用git reset HEAD \<file>来清空缓存区。</file></p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">    $ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">	   modified:   gitstudy.txt</span><br><span class="line">no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</span><br></pre></td></tr></table></figure>
+</code></pre><p>这样就清空了缓存区，成了没有add之前的状态，之后再按<strong>add之前</strong>撤销对工作区的修改。</p>
+<pre><code>未完待续……
+</code></pre>
                 
 <p class="pink-link-context">
-    <a href="/2018/04/29/用UICollectionView实现简单瀑布流/" rel="next" title="用UICollectionView自定义Layout实现简单瀑布流">
-    上一篇：用UICollectionView自定义Layout实现简单瀑布流
+    <a href="/2018/05/02/http协议学习/" rel="next" title="http协议学习">
+    上一篇：http协议学习
   </a>
 </p>
 
 
 
 <p class="pink-link-context">
-    <a href="/2018/04/25/iOS-APP-启动过程分析/" rel="next" title="iOS APP 启动过程分析">
-    下一篇：iOS APP 启动过程分析
+    <a href="/2018/04/29/用UICollectionView实现简单瀑布流/" rel="next" title="用UICollectionView自定义Layout实现简单瀑布流">
+    下一篇：用UICollectionView自定义Layout实现简单瀑布流
   </a>
 </p>
 
