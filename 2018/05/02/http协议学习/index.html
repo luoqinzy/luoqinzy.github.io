@@ -179,16 +179,24 @@
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/iOS/">
-                    iOS <span class="right">3 篇</span></a>
+                <a class="no-padding" href="/categories/计算机网络/">
+                    计算机网络 <span class="right">1 篇</span></a>
                 </a>
             </li>
 
         
 
             <li class="collapse-level-0" collapse-level="0">
-                <a class="no-padding" href="/categories/计算机网络/">
-                    计算机网络 <span class="right">1 篇</span></a>
+                <a class="no-padding" href="/categories/iOS/">
+                    iOS <span class="right">4 篇</span></a>
+                </a>
+            </li>
+
+        
+
+            <li class="collapse-level-0" collapse-level="0">
+                <a class="no-padding" href="/categories/学习目标/">
+                    学习目标 <span class="right">1 篇</span></a>
                 </a>
             </li>
 
@@ -362,24 +370,20 @@
 </ul>
 </li>
 <li><p>浏览器给web服务器发送一个HTTP请求</p>
+ <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">http://facebook.com/</span> HTTP/1.1</span><br><span class="line"> <span class="attribute">Accept</span>: application/x-ms-application, image/jpeg, application/xaml+xml, [...]</span><br><span class="line"> <span class="attribute">User-Agent</span>: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; [...]</span><br><span class="line"> <span class="attribute">Accept-Encoding</span>: gzip, deflate</span><br><span class="line"> <span class="attribute">Connection</span>: Keep-Alive</span><br><span class="line"> <span class="attribute">Host</span>: facebook.com</span><br><span class="line"><span class="attribute">Cookie</span>: datr=1265876274-[...]; locale=en_US; lsd=WW[...]; c_user=2101[...]</span><br></pre></td></tr></table></figure>
+<p> GET 这个请求定义了要读取的URL： “<a href="http://facebook.com/”。" target="_blank" rel="noopener">http://facebook.com/”。</a> 浏览器自身定义 (User-Agent 头)， 和它希望接受什么类型的相应 (Accept andAccept-Encoding 头). Connection头要求服务器为了后边的请求不要关闭TCP连接。</p>
+<p> 请求中也包含浏览器存储的该域名的cookies。可能你已经知道，在不同页面请求当中，cookies是与跟踪一个网站状态相匹配的键值。这样cookies会存储登录用户名，服务器分配的密码和一些用户设置等。Cookies会以文本文档形式存储在客户机里，每次请求时发送给服务器。</p>
 </li>
-</ol>
-<pre><code><figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">http://facebook.com/</span> HTTP/1.1</span><br><span class="line"> <span class="attribute">Accept</span>: application/x-ms-application, image/jpeg, application/xaml+xml, [...]</span><br><span class="line"> <span class="attribute">User-Agent</span>: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; [...]</span><br><span class="line"> <span class="attribute">Accept-Encoding</span>: gzip, deflate</span><br><span class="line"> <span class="attribute">Connection</span>: Keep-Alive</span><br><span class="line"> <span class="attribute">Host</span>: facebook.com</span><br><span class="line"><span class="attribute">Cookie</span>: datr=1265876274-[...]; locale=en_US; lsd=WW[...]; c_user=2101[...]</span><br></pre></td></tr></table></figure>
-</code></pre><p>GET 这个请求定义了要读取的URL： “<a href="http://facebook.com/”。" target="_blank" rel="noopener">http://facebook.com/”。</a> 浏览器自身定义 (User-Agent 头)， 和它希望接受什么类型的相应 (Accept andAccept-Encoding 头). Connection头要求服务器为了后边的请求不要关闭TCP连接。</p>
-<pre><code>请求中也包含浏览器存储的该域名的cookies。可能你已经知道，在不同页面请求当中，cookies是与跟踪一个网站状态相匹配的键值。这样cookies会存储登录用户名，服务器分配的密码和一些用户设置等。Cookies会以文本文档形式存储在客户机里，每次请求时发送给服务器。
-</code></pre><ol start="5">
 <li><p>服务器永久重定向301响应</p>
  <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 <span class="number">301</span> Moved Permanently</span><br><span class="line"> <span class="attribute">Cache-Control</span>: private, no-store, no-cache, must-revalidate, post-check=0,</span><br><span class="line"> pre-check=0</span><br><span class="line"> <span class="attribute">Expires</span>: Sat, 01 Jan 2000 00:00:00 GMT</span><br><span class="line"> <span class="attribute">Location</span>: http://www.facebook.com/</span><br><span class="line"> <span class="attribute">P3P</span>: CP="DSP LAW"</span><br><span class="line"> <span class="attribute">Pragma</span>: no-cache</span><br><span class="line"> <span class="attribute">Set-Cookie</span>: made_write_conn=deleted; expires=Thu, 12-Feb-2009 05:09:50 GMT;</span><br><span class="line"> path=/; domain=.facebook.com; httponly</span><br><span class="line"> <span class="attribute">Content-Type</span>: text/html; charset=utf-8</span><br><span class="line"> <span class="attribute">X-Cnection</span>: close</span><br><span class="line"> <span class="attribute">Date</span>: Fri, 12 Feb 2010 05:09:51 GMT</span><br><span class="line"> <span class="attribute">Content-Length</span>: 0</span><br></pre></td></tr></table></figure>
+<p> 服务器给浏览器响应一个301永久重定向响应，这样浏览器就会访问“<a href="http://www.facebook.com/”" target="_blank" rel="noopener">http://www.facebook.com/”</a> 而非“<a href="http://facebook.com/”" target="_blank" rel="noopener">http://facebook.com/”</a> 。如果同时将几个域名解析到同一个空间的时候，如果不做重定向，就会形成重复页面，对网站是极度不利的，这种情况需要做301重定向。</p>
 </li>
-</ol>
-<pre><code>服务器给浏览器响应一个301永久重定向响应，这样浏览器就会访问“http://www.facebook.com/” 而非“http://facebook.com/” 。如果同时将几个域名解析到同一个空间的时候，如果不做重定向，就会形成重复页面，对网站是极度不利的，这种情况需要做301重定向。
-</code></pre><ol start="6">
 <li><p>浏览器跟踪重定向</p>
 <p> 现在，浏览器知道了“<a href="http://www.facebook.com/”" target="_blank" rel="noopener">http://www.facebook.com/”</a> 才是要访问的正确地址，所以它会发送另一个获取请求：</p>
  <figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">http://www.facebook.com/</span> HTTP/1.1</span><br><span class="line"> <span class="attribute">Accept</span>: application/x-ms-application, image/jpeg, application/xaml+xml, [...]</span><br><span class="line"> <span class="attribute">Accept-Language</span>: en-US</span><br><span class="line"> <span class="attribute">User-Agent</span>: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; [...]</span><br><span class="line"> <span class="attribute">Accept-Encoding</span>: gzip, deflate</span><br><span class="line"> <span class="attribute">Connection</span>: Keep-Alive</span><br><span class="line"> <span class="attribute">Cookie</span>: lsd=XW[...]; c_user=21[...]; x-referer=[...]</span><br><span class="line"> <span class="attribute">Host</span>: www.facebook.com</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<ol start="8">
+<ol start="7">
 <li>服务器处理请求</li>
 <li>服务器返回一个响应</li>
 <li>浏览器渲染并显示</li>
@@ -390,6 +394,12 @@
 </ul>
 
                 
+<p class="pink-link-context">
+    <a href="/2018/05/05/iOS网络请求学习/" rel="next" title="iOS网络请求学习">
+    上一篇：iOS网络请求学习
+  </a>
+</p>
+
 
 
 <p class="pink-link-context">
